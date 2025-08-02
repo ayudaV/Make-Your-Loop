@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_58nlc")
 level_name = ""
-static_matrix_size = Vector3(4, 1, 4)
-static_matrix = [[[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]]]
+static_matrix_size = Vector3(4, 2, 4)
+static_matrix = [[[&"ground", &"player"], [&"ground", &"air"], [&"ground", &"ground"], [&"ground", &"ground"]], [[&"ground", &"air"], [&"ground", &"air"], [&"ground", &"ground"], [&"ground", &"ground"]], [[&"ground", &"air"], [&"ground", &"air"], [&"ground", &"ground"], [&"ground", &"ground"]], [[&"ground", &"air"], [&"ground", &"ground"], [&"ground", &"ground"], [&"ground", &"ground"]]]
 metadata/_custom_type_script = "uid://v1k3sve38uvs"

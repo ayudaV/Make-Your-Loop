@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://celdpnylnsy0c"]
+[gd_scene load_steps=16 format=3 uid="uid://celdpnylnsy0c"]
 
-[ext_resource type="Script" uid="uid://bhd6eyqtyup7x" path="res://src/render.gd" id="1_jtfo5"]
 [ext_resource type="Script" uid="uid://bf7nefslog3ax" path="res://levels/test/free_camera.gd" id="1_mioqa"]
-[ext_resource type="Resource" uid="uid://rhivsmcp86pv" path="res://levels/test/test_metadata.tres" id="3_kqk0q"]
-[ext_resource type="PackedScene" uid="uid://diuqfdy0hwdr5" path="res://assets/GLTF format/bed.glb" id="4_kqk0q"]
 [ext_resource type="Texture2D" uid="uid://qi3dmihcsq2w" path="res://levels/test/clear_sky.exr" id="5_twiol"]
+[ext_resource type="PackedScene" uid="uid://c3buge8itnrlb" path="res://assets/GLTF format/ground_pathEndClosed.glb" id="5_u108h"]
+[ext_resource type="PackedScene" uid="uid://cnmt05i7b1y3i" path="res://assets/GLTF format/ground_pathBendBank.glb" id="6_jefxx"]
+[ext_resource type="PackedScene" uid="uid://bb54vfffa6g6d" path="res://assets/GLTF format/ground_pathStraight.glb" id="7_q2yoe"]
+[ext_resource type="PackedScene" uid="uid://chcte2c4ug78k" path="res://assets/GLTF format/grass.glb" id="8_4uc8a"]
+[ext_resource type="PackedScene" uid="uid://7r8jcf85clsn" path="res://assets/GLTF format/ground_grass.glb" id="9_p1tfk"]
+[ext_resource type="PackedScene" uid="uid://c5u1n86f7sjnt" path="res://assets/GLTF format/piston.glb" id="10_ttq4n"]
+[ext_resource type="PackedScene" uid="uid://wsogs83a8fl3" path="res://assets/GLTF format/cliff_blockCave_stone.glb" id="11_52blo"]
+[ext_resource type="PackedScene" uid="uid://28mtbyq368a2" path="res://assets/GLTF format/cliff_block_rock.glb" id="12_n3l5s"]
+[ext_resource type="PackedScene" uid="uid://dow3vw0a5dqmv" path="res://assets/GLTF format/cliff_cave_rock.glb" id="13_3745j"]
+[ext_resource type="PackedScene" uid="uid://dgpmybt2knlhu" path="res://assets/GLTF format/cliff_block_stone.glb" id="14_jdvwq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mjedn"]
 panorama = ExtResource("5_twiol")
@@ -20,18 +27,232 @@ sky = SubResource("Sky_tlpkn")
 [node name="Test" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.936574, 0.350469, 0, -0.350469, 0.936574, 0, 0.939202, 2.36089)
+transform = Transform3D(-1, -6.74731e-08, 5.55889e-08, 4.37114e-08, 0.164772, 0.986332, -7.57103e-08, 0.986332, -0.164772, 4, 3.9392, 0.36089)
+size = 5.0
 script = ExtResource("1_mioqa")
-
-[node name="Map" type="Node3D" parent="."]
-script = ExtResource("1_jtfo5")
-scene_metadata = ExtResource("3_kqk0q")
-
-[node name="bed2" parent="." instance=ExtResource("4_kqk0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120263, 0, 0.14587)
+sensitivity = 0.26
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4tj15")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
+[node name="ground_pathEndClosed2" parent="." instance=ExtResource("5_u108h")]
+
+[node name="ground_pathBendBank2" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="ground_pathBendBank3" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 1)
+
+[node name="ground_pathBendBank4" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="ground_pathBendBank5" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 0)
+
+[node name="ground_pathBendBank6" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 5, 0, 1)
+
+[node name="ground_pathBendBank7" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 6, 0, 1)
+
+[node name="ground_pathBendBank8" parent="ground_pathEndClosed2" instance=ExtResource("6_jefxx")]
+transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 6, 0, 2)
+
+[node name="ground_pathStraight2" parent="." instance=ExtResource("7_q2yoe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 1)
+
+[node name="ground_pathStraight3" parent="." instance=ExtResource("7_q2yoe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 0)
+
+[node name="ground_pathStraight4" parent="." instance=ExtResource("7_q2yoe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 0)
+
+[node name="ground_pathStraight5" parent="." instance=ExtResource("7_q2yoe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 2)
+
+[node name="ground_pathStraight6" parent="." instance=ExtResource("7_q2yoe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 2)
+
+[node name="grass2" parent="." instance=ExtResource("8_4uc8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="ground_grass2" parent="grass2" instance=ExtResource("9_p1tfk")]
+
+[node name="ground_grass3" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="ground_grass4" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="ground_grass5" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+
+[node name="ground_grass6" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="ground_grass8" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="ground_grass9" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="ground_grass10" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="ground_grass11" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="ground_grass14" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="ground_grass15" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="ground_grass16" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="ground_grass12" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="ground_grass13" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="ground_grass7" parent="grass2" instance=ExtResource("9_p1tfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
+
+[node name="piston" parent="grass2" instance=ExtResource("10_ttq4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
+
+[node name="Limit" type="Node" parent="."]
+
+[node name="cliff_blockCave_stone2" parent="Limit" instance=ExtResource("11_52blo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 2)
+
+[node name="cliff_block_rock2" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="cliff_block_rock5" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="cliff_block_rock6" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="cliff_block_rock7" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="cliff_block_rock8" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="cliff_block_rock9" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68575e-08, 0, 3)
+
+[node name="cliff_block_rock3" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="cliff_block_rock4" parent="Limit" instance=ExtResource("12_n3l5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
+
+[node name="cliff_cave_rock2" parent="Limit" instance=ExtResource("13_3745j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="cliff_block_stone2" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1)
+
+[node name="cliff_block_stone3" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="cliff_block_stone4" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+
+[node name="cliff_block_stone6" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="cliff_block_stone7" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1)
+
+[node name="cliff_block_stone8" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="cliff_block_stone9" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="cliff_block_stone10" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="cliff_block_stone11" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="cliff_block_stone12" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="cliff_block_stone13" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="cliff_block_stone14" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="cliff_block_stone15" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="cliff_block_stone16" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="cliff_block_stone17" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="cliff_block_stone18" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="cliff_block_stone19" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
+
+[node name="cliff_block_stone20" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
+
+[node name="cliff_block_stone21" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6)
+
+[node name="cliff_block_stone22" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
+
+[node name="cliff_block_stone23" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="cliff_block_stone24" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="cliff_block_stone25" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
+[node name="cliff_block_stone26" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="cliff_block_stone27" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 7)
+
+[node name="cliff_block_stone28" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
+
+[node name="cliff_block_stone29" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7)
+
+[node name="cliff_block_stone30" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7)
+
+[node name="cliff_block_stone31" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 7)
+
+[node name="cliff_block_stone32" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+
+[node name="cliff_block_stone33" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 5)
+
+[node name="cliff_block_stone34" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="cliff_block_stone35" parent="Limit" instance=ExtResource("14_jdvwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
