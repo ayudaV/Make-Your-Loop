@@ -1,3 +1,159 @@
-[gd_scene format=3 uid="uid://y3btkg3pcbii"]
+[gd_scene load_steps=6 format=3 uid="uid://y3btkg3pcbii"]
+
+[ext_resource type="Script" uid="uid://c1v55erm182um" path="res://ui/ui_controller.gd" id="1_6vchm"]
+[ext_resource type="FontFile" uid="uid://dnw8ych56rlb1" path="res://assets/Bangers/Bangers-Regular.ttf" id="2_owo3d"]
+[ext_resource type="Texture2D" uid="uid://dvj2m4s0s1fp2" path="res://ui/make-your-loop-ui-cicle.png" id="3_0m51m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0ipd"]
+font = ExtResource("2_owo3d")
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_6vchm"]
+font = ExtResource("2_owo3d")
+font_size = 86
 
 [node name="UiController" type="CanvasLayer"]
+script = ExtResource("1_6vchm")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Center" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Make
+Your
+Loop"
+label_settings = SubResource("LabelSettings_h0ipd")
+
+[node name="CommandWheel" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(250, 250)
+texture = ExtResource("3_0m51m")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="LabelWheel1" type="MarginContainer" parent="Container/CommandWheel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_right = 66.0
+offset_bottom = 132.0
+grow_horizontal = 2
+pivot_offset = Vector2(66, 66)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="L1" type="Label" parent="Container/CommandWheel/LabelWheel1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "W"
+label_settings = SubResource("LabelSettings_6vchm")
+
+[node name="LabelWheel2" type="MarginContainer" parent="Container/CommandWheel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -66.0
+offset_bottom = 66.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(66, 66)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="L2" type="Label" parent="Container/CommandWheel/LabelWheel2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "W"
+label_settings = SubResource("LabelSettings_6vchm")
+
+[node name="LabelWheel3" type="MarginContainer" parent="Container/CommandWheel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -132.0
+offset_right = 66.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(66, 66)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="L3" type="Label" parent="Container/CommandWheel/LabelWheel3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "W"
+label_settings = SubResource("LabelSettings_6vchm")
+
+[node name="LabelWheel4" type="MarginContainer" parent="Container/CommandWheel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -66.0
+offset_right = 132.0
+offset_bottom = 66.0
+grow_vertical = 2
+pivot_offset = Vector2(66, 66)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="L4" type="Label" parent="Container/CommandWheel/LabelWheel4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "W"
+label_settings = SubResource("LabelSettings_6vchm")
