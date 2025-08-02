@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bboev0g0du2l0"]
+
+[ext_resource type="PackedScene" uid="uid://7r8jcf85clsn" path="res://assets/GLTF format/ground_grass.glb" id="1_qd7du"]
+
+[node name="GroundGrass" type="Node3D"]
+
+[node name="ground_grass2" parent="." instance=ExtResource("1_qd7du")]

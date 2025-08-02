@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://celdpnylnsy0c"]
+
+[ext_resource type="Script" uid="uid://bhd6eyqtyup7x" path="res://src/render.gd" id="1_jtfo5"]
+[ext_resource type="Script" uid="uid://bf7nefslog3ax" path="res://levels/test/free_camera.gd" id="1_mioqa"]
+[ext_resource type="Resource" uid="uid://rhivsmcp86pv" path="res://levels/test/test_metadata.tres" id="3_kqk0q"]
+[ext_resource type="PackedScene" uid="uid://diuqfdy0hwdr5" path="res://assets/GLTF format/bed.glb" id="4_kqk0q"]
+
+[sub_resource type="Gradient" id="Gradient_kqk0q"]
+offsets = PackedFloat32Array(0, 0.444444)
+colors = PackedColorArray(0.547227, 0.327613, 0.181128, 1, 0.683111, 0.795812, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_twiol"]
+gradient = SubResource("Gradient_kqk0q")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mjedn"]
+panorama = SubResource("GradientTexture2D_twiol")
+
+[sub_resource type="Sky" id="Sky_tlpkn"]
+sky_material = SubResource("PanoramaSkyMaterial_mjedn")
+
+[sub_resource type="Environment" id="Environment_4tj15"]
+background_mode = 2
+sky = SubResource("Sky_tlpkn")
+
+[node name="Test" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.936574, 0.350469, 0, -0.350469, 0.936574, 0, 0.939202, 2.36089)
+script = ExtResource("1_mioqa")
+
+[node name="Map" type="Node3D" parent="."]
+script = ExtResource("1_jtfo5")
+scene_metadata = ExtResource("3_kqk0q")
+
+[node name="bed2" parent="." instance=ExtResource("4_kqk0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120263, 0, 0.14587)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4tj15")

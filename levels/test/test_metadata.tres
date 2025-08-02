@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelMetadata" load_steps=2 format=3 uid="uid://rhivsmcp86pv"]
+
+[ext_resource type="Script" uid="uid://v1k3sve38uvs" path="res://src/level_metadata.gd" id="1_58nlc"]
+
+[resource]
+script = ExtResource("1_58nlc")
+level_name = ""
+static_matrix_size = Vector3(4, 1, 4)
+static_matrix = [[[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]], [[&"ground_grass"], [&"ground_grass"], [&"ground_grass"], [&"ground_grass"]]]
+metadata/_custom_type_script = "uid://v1k3sve38uvs"
