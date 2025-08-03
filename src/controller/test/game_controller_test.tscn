@@ -8,7 +8,7 @@
 script = ExtResource("1_ir4gd")
 loop_size = 4
 level = ExtResource("2_j5hyj")
-loop_array = Array[Vector3]([Vector3(1, 0, -1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0)])
+loop_array = Array[Vector3]([Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(1, 0, 0), Vector3(1, 0, 0)])
 
 [node name="Test" parent="." instance=ExtResource("3_bppx0")]
 
