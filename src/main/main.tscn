@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dar6l1carkpd3"]
+[gd_scene load_steps=10 format=3 uid="uid://dar6l1carkpd3"]
 
 [ext_resource type="PackedScene" uid="uid://y3btkg3pcbii" path="res://ui/ui_controller.tscn" id="1_djufw"]
 [ext_resource type="Script" uid="uid://djdcpow7l21df" path="res://src/main/main.gd" id="1_jqarl"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://qi3dmihcsq2w" path="res://assets/clear_sky.exr" id="4_30cu5"]
 [ext_resource type="PackedScene" uid="uid://jf3xiuvnr0wo" path="res://src/controller/game_controller.tscn" id="6_jqarl"]
 [ext_resource type="Resource" uid="uid://rhivsmcp86pv" path="res://levels/piston_tutorial/piston_tutorial_metadata.tres" id="7_30cu5"]
-[ext_resource type="PackedScene" uid="uid://celdpnylnsy0c" path="res://levels/piston_tutorial/piston_tutorial.tscn" id="7_frqgp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_frqgp"]
 panorama = ExtResource("4_30cu5")
@@ -38,5 +37,3 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 
 [node name="GameController" parent="." instance=ExtResource("6_jqarl")]
 current_level = ExtResource("7_30cu5")
-
-[node name="PistonTutorial" parent="." instance=ExtResource("7_frqgp")]
