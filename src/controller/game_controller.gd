@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		loop_position=(loop_position+1)%loop_size
 		can_move = false
 		%Timer.start(2)
+		print(entity_matrix)
 		
 func start_level():
 	level_matrix=level.static_matrix
