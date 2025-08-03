@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh8oj0gchrdlo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urgya"]
+transparency = 1
+albedo_color = Color(0.494118, 0.741176, 0.968627, 0.278431)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w4xov"]
+material = SubResource("StandardMaterial3D_urgya")
+
+[node name="Wall" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_w4xov")

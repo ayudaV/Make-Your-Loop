@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="LevelMetadata" load_steps=2 format=3 uid="uid://djswlldfonwnh"]
-
-[ext_resource type="Script" uid="uid://v1k3sve38uvs" path="res://src/level_metadata.gd" id="1_d860j"]
-
-[resource]
-script = ExtResource("1_d860j")
-metadata/_custom_type_script = "uid://v1k3sve38uvs"

@@ -1,7 +1,10 @@
 class_name Air extends Tile
 
-func _ready():
+
+func _init(position:Vector3) -> void:
 	name="air"
+	self.position = position
+	
 func can_move_into(entity,direction):
 	return true
 func can_move_over(entity,direction):

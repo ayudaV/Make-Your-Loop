@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Levels" load_steps=4 format=3 uid="uid://dujbsv12ujn3m"]
+
+[ext_resource type="Script" uid="uid://cvsoxhx1vworn" path="res://src/levels.gd" id="1_88md2"]
+[ext_resource type="Script" uid="uid://v1k3sve38uvs" path="res://src/level_metadata.gd" id="1_odjf1"]
+[ext_resource type="Resource" uid="uid://rhivsmcp86pv" path="res://levels/piston_tutorial/piston_tutorial_metadata.tres" id="2_ktior"]
+
+[resource]
+script = ExtResource("1_88md2")
+levels = Array[ExtResource("1_odjf1")]([ExtResource("2_ktior")])
+metadata/_custom_type_script = "uid://cvsoxhx1vworn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://y3btkg3pcbii"]
+[gd_scene load_steps=12 format=3 uid="uid://y3btkg3pcbii"]
 
 [ext_resource type="Script" uid="uid://c1v55erm182um" path="res://ui/ui_controller.gd" id="1_6vchm"]
 [ext_resource type="FontFile" uid="uid://dnw8ych56rlb1" path="res://assets/Bangers/Bangers-Regular.ttf" id="2_owo3d"]
@@ -11,6 +11,92 @@ font_size = 61
 [sub_resource type="LabelSettings" id="LabelSettings_6vchm"]
 font = ExtResource("2_owo3d")
 font_size = 86
+
+[sub_resource type="Theme" id="Theme_6vchm"]
+default_font = ExtResource("2_owo3d")
+default_font_size = 55
+
+[sub_resource type="Animation" id="Animation_owo3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pause:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_h0ipd"]
+resource_name = "despause"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pause:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_0m51m"]
+resource_name = "pause"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pause:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, -300), Vector2(576, 374), Vector2(576, 314), Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_6vchm"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m51m"]
+_data = {
+&"RESET": SubResource("Animation_owo3d"),
+&"despause": SubResource("Animation_h0ipd"),
+&"pause": SubResource("Animation_0m51m"),
+&"run": SubResource("Animation_6vchm")
+}
 
 [node name="UiController" type="CanvasLayer"]
 script = ExtResource("1_6vchm")
@@ -80,7 +166,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "W"
 label_settings = SubResource("LabelSettings_6vchm")
 
 [node name="LabelWheel2" type="MarginContainer" parent="Container/CommandWheel"]
@@ -106,7 +191,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "W"
 label_settings = SubResource("LabelSettings_6vchm")
 
 [node name="LabelWheel3" type="MarginContainer" parent="Container/CommandWheel"]
@@ -132,7 +216,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "W"
 label_settings = SubResource("LabelSettings_6vchm")
 
 [node name="LabelWheel4" type="MarginContainer" parent="Container/CommandWheel"]
@@ -155,5 +238,47 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "W"
 label_settings = SubResource("LabelSettings_6vchm")
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6vchm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 0
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="Reset" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Exit" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0m51m")
+}
+
+[connection signal="button_up" from="Pause/VBoxContainer/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Pause/VBoxContainer/Reset" to="." method="_on_reset_button_up"]
+[connection signal="button_up" from="Pause/VBoxContainer/Exit" to="." method="_on_exit_button_up"]

@@ -2,7 +2,7 @@ extends Node
 
 @export var scene_metadata:LevelMetadata
 
-@onready var ground_grass = preload("res://assets/GLTF format/ground_grass.glb")
+@onready var ground_grass = preload("res://assets/scenarios/GLTF format/ground_grass.glb")
 
 func _ready() -> void:
 

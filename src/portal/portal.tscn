@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://clxjq8t1a31md"]
+
+[ext_resource type="PackedScene" uid="uid://wsogs83a8fl3" path="res://assets/scenarios/GLTF format/cliff_blockCave_stone.glb" id="1_v6slm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvpx0"]
+emission_shape_scale = Vector3(0.3, 0.4, 0.4)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfjos"]
+albedo_color = Color(0, 2, 2, 1)
+emission_enabled = true
+emission = Color(0, 2, 2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_508n2"]
+material = SubResource("StandardMaterial3D_sfjos")
+radius = 0.013
+height = 0.025
+radial_segments = 8
+rings = 4
+
+[node name="Portal" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+amount = 16
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_hvpx0")
+draw_pass_1 = SubResource("SphereMesh_508n2")
+
+[node name="cliff_blockCave_stone2" parent="." instance=ExtResource("1_v6slm")]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=11 format=3 uid="uid://dar6l1carkpd3"]
+
+[ext_resource type="PackedScene" uid="uid://y3btkg3pcbii" path="res://ui/ui_controller.tscn" id="1_djufw"]
+[ext_resource type="Script" uid="uid://djdcpow7l21df" path="res://src/main/main.gd" id="1_jqarl"]
+[ext_resource type="Script" uid="uid://bf7nefslog3ax" path="res://src/main/free_camera.gd" id="3_jqarl"]
+[ext_resource type="Texture2D" uid="uid://qi3dmihcsq2w" path="res://assets/clear_sky.exr" id="4_30cu5"]
+[ext_resource type="PackedScene" uid="uid://jf3xiuvnr0wo" path="res://src/controller/game_controller.tscn" id="6_jqarl"]
+[ext_resource type="Resource" uid="uid://rhivsmcp86pv" path="res://levels/piston_tutorial/piston_tutorial_metadata.tres" id="7_30cu5"]
+[ext_resource type="PackedScene" uid="uid://celdpnylnsy0c" path="res://levels/piston_tutorial/piston_tutorial.tscn" id="7_frqgp"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_frqgp"]
+panorama = ExtResource("4_30cu5")
+energy_multiplier = 1.8
+
+[sub_resource type="Sky" id="Sky_tlpkn"]
+sky_material = SubResource("PanoramaSkyMaterial_frqgp")
+
+[sub_resource type="Environment" id="Environment_2nke2"]
+background_mode = 2
+sky = SubResource("Sky_tlpkn")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_jqarl")
+
+[node name="UiController" parent="." instance=ExtResource("1_djufw")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 1.53701e-07, -6.99937e-08, 4.37114e-08, 0.164772, 0.986332, 1.63133e-07, -0.986332, 0.164772, 5, 6, 5)
+size = 5.0
+script = ExtResource("3_jqarl")
+sensitivity = 0.26
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2nke2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
+[node name="GameController" parent="." instance=ExtResource("6_jqarl")]
+current_level = ExtResource("7_30cu5")
+
+[node name="PistonTutorial" parent="." instance=ExtResource("7_frqgp")]
