@@ -12,7 +12,8 @@ var matrix_size:Vector3
 var entity_matrix:Array
 var player:Player
 var can_move = false
-
+var portal_list=[]
+var setup_finished=false
 func reset():
 	can_move = false
 
@@ -23,7 +24,7 @@ func _ready() -> void:
 	start_level()
 	
 func _process(delta: float) -> void:
-	if can_move:
+	if can_move and setup_finished:
 		player.move(loop_array[loop_position])
 		loop_position=(loop_position+1)%loop_size
 		can_move = false
@@ -47,8 +48,13 @@ func start_level():
 				elif level_matrix[z][x][y]=="pis":
 					entity_matrix[z][x][y]=Piston.new(self, Vector3(x,y,z))
 				elif level_matrix[z][x][y]=="por":
-					entity_matrix[z][x][y]=Portal.new(self, Vector3(x,y,z))
-
+					var portal=Portal.new(self, Vector3(x,y,z))
+					entity_matrix[z][x][y]=portal
+					portal_list.append(portal)
+	if portal_list.size()!=0:
+		portal_list[0].connected_portal_position=portal_list[1].position
+		portal_list[1].connected_portal_position=portal_list[0].position
+	setup_finished=true
 func get_element(position):
 	return entity_matrix[position.z][position.x][position.y]
 	

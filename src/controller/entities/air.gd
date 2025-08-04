@@ -14,5 +14,5 @@ func move_into(entity,direction):
 	Globals.game_controller.set_element(position,entity)
 	Globals.game_controller.set_element(entity.position,self)
 	var aux = entity.position
-	position = entity.position
-	entity.position = aux
+	entity.position = position
+	position = aux

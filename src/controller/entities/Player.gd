@@ -16,5 +16,5 @@ func move(direction):
 	if target.can_move_into(self,direction) and target_floor.can_move_over(self,direction):
 		target.move_into(self,direction)
 		target_floor.move_over(self,direction)
-		self.position = position+direction
+		#self.position = position+direction
 		update_render()
