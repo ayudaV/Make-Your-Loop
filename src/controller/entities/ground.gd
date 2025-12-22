@@ -8,3 +8,13 @@ func _init(parent:Node, position:Vector3, in_array:Array[Vector3], out_array:Arr
 	self.out_array = out_array
 	render = model.instantiate()
 	load_render(parent)
+
+func can_move_into(entity,direction):
+	return false
+
+func can_move_over(entity,direction):
+	if -direction in self.in_array:
+		return true
+		
+	else:
+		return false
