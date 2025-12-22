@@ -41,9 +41,9 @@ func start_level():
 				if level_matrix[z][x][y]=="grass":
 					entity_matrix[z][x][y]=Grass.new(self, Vector3(x,y,z))
 				elif level_matrix[z][x][y]=="ground":
-					entity_matrix[z][x][y]=Ground.new(self, Vector3(x,y,z))
+					entity_matrix[z][x][y]=Ground.new(self, Vector3(x,y,z), [], [])
 				elif level_matrix[z][x][y]=="air":
-					entity_matrix[z][x][y]=Air.new(Vector3(x,y,z))
+					entity_matrix[z][x][y]=Air.new(self, Vector3(x,y,z))
 				elif level_matrix[z][x][y]=="player":
 					player=Player.new(self, Vector3(x,y,z))
 					entity_matrix[z][x][y]=player
