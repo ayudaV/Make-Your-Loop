@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6d5f5twd8k0d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iybca"]
+transparency = 1
+albedo_color = Color(0.35874, 0.815721, 0.636808, 0.278431)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w4xov"]
+material = SubResource("StandardMaterial3D_iybca")
+
+[node name="Grass" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_w4xov")

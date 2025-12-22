@@ -38,16 +38,18 @@ func start_level():
 	for x in range(matrix_size.x):
 		for z in range(matrix_size.z):
 			for y in range(matrix_size.y):
-				if level_matrix[z][x][y]=="wal":
+				if level_matrix[z][x][y]=="grass":
+					entity_matrix[z][x][y]=Grass.new(self, Vector3(x,y,z))
+				elif level_matrix[z][x][y]=="ground":
 					entity_matrix[z][x][y]=Ground.new(self, Vector3(x,y,z))
 				elif level_matrix[z][x][y]=="air":
 					entity_matrix[z][x][y]=Air.new(Vector3(x,y,z))
-				elif level_matrix[z][x][y]=="pla":
+				elif level_matrix[z][x][y]=="player":
 					player=Player.new(self, Vector3(x,y,z))
 					entity_matrix[z][x][y]=player
-				elif level_matrix[z][x][y]=="pis":
+				elif level_matrix[z][x][y]=="piston":
 					entity_matrix[z][x][y]=Piston.new(self, Vector3(x,y,z))
-				elif level_matrix[z][x][y]=="por":
+				elif level_matrix[z][x][y]=="portal":
 					var portal=Portal.new(self, Vector3(x,y,z))
 					entity_matrix[z][x][y]=portal
 					portal_list.append(portal)

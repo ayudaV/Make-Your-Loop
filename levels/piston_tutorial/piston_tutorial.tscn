@@ -41,15 +41,13 @@
 
 [node name="Decorations" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+visible = false
 
 [node name="grass2" parent="Decorations" instance=ExtResource("1_t1iat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.3)
 
 [node name="grass_leafsLarge2" parent="Decorations" instance=ExtResource("11_3ic80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -0.2)
-
-[node name="ground_pathSplit2" parent="Decorations" instance=ExtResource("12_vm78a")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 1, 5)
 
 [node name="plant_bush2" parent="Decorations" instance=ExtResource("13_i153k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
@@ -451,3 +449,6 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 6, 0, 
 
 [node name="ground_pathBendBank8" parent="Path" instance=ExtResource("8_gvx07")]
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 6, 0, 2)
+
+[node name="ground_pathSplit2" parent="Path" instance=ExtResource("12_vm78a")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 1, 5)
