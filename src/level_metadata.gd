@@ -2,5 +2,45 @@ class_name LevelMetadata extends Resource
 
 @export var level_name: String
 @export var static_matrix_size: Vector3
-@export var static_matrix: Array
 @export var level_scenario: PackedScene
+var player: Player
+
+func get_player() -> Player:
+	return player 
+	
+func get_level_matrix(level_instance):
+	var entity_matrix:Array[Array] = []
+	var paths:Array[Node] = level_instance.get_node("Paths").get_children()
+	var interactables:Array[Node] = level_instance.get_node("Interactables").get_children()
+	var characater = level_instance.get_node("Player") as CharacterBody3D
+	player = Player.new(characater.position, characater)
+	
+	for x in range(static_matrix_size.x):
+		entity_matrix.append([])
+		for y in range(static_matrix_size.y):
+			entity_matrix[x].append([])
+			for z in range(static_matrix_size.z):
+				entity_matrix[x][y].append(Air.new(Vector3(x, y, z)))
+
+	for path:Paths in paths:
+		entity_matrix[path.position.x][path.position.y][path.position.z] = Ground.new(
+			path.position, 
+			path.get_entrances(), 
+			path.get_entrances())
+
+	for interactable in interactables:
+		match interactable.get_groups()[0]:
+			"portal": 
+				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = Portal.new(
+					interactable.position, 
+					interactable.get_entrances(), 
+					interactable.get_entrances(),
+					interactable.get_conected_portal_pos()
+					)
+			"piston": 
+				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = Piston.new(
+					interactable.position, 
+					interactable.is_open)
+					
+		entity_matrix[player.position.x][player.position.y][player.position.z] = player
+	return entity_matrix

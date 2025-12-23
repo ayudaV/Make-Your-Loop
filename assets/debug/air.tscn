@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wbcaxorkmb4k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ca6f"]
+transparency = 1
+albedo_color = Color(0.882353, 0.372549, 0.286275, 0.364706)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bmwp7"]
+material = SubResource("StandardMaterial3D_5ca6f")
+radius = 0.1
+height = 0.2
+
+[node name="Air" type="MeshInstance3D"]
+visible = false
+mesh = SubResource("SphereMesh_bmwp7")

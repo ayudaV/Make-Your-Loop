@@ -1,7 +1,7 @@
 class_name Air extends Tile
 
 
-func _init(parent:Node, position:Vector3) -> void:
+func _init(position:Vector3) -> void:
 	name="air"
 	self.position = position
 	

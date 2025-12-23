@@ -38,6 +38,7 @@ func append_dir(dir):
 	current_rotation -= 90
 	current_rotation_label += 90
 	if len(Globals.game_controller.loop_array) == 4:
+		print(Globals.game_controller.loop_array)
 		start()
 		
 func start():
@@ -50,6 +51,7 @@ func reset():
 	%L3.text = ''
 	%L4.text = ''
 	Globals.game_controller.loop_array = []
+	Globals.game_controller.can_move = false
 	$Container.scale = Vector2(1, 1)
 	
 	
