@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://byn2tds1kcqp"]
+[gd_scene load_steps=5 format=3 uid="uid://byn2tds1kcqp"]
+
+[ext_resource type="Script" uid="uid://c5l4j0q554m1h" path="res://assets/debug/ground.gd" id="1_md65e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r668"]
 transparency = 1
@@ -12,13 +14,20 @@ size = Vector3(0.1, 0.1, 1)
 
 [node name="Ground" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_w4xov")
+script = ExtResource("1_md65e")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="LEFT" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.5, 0)
-visible = false
 mesh = SubResource("BoxMesh_0r668")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="RIGHT" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.5, 0)
-visible = false
+mesh = SubResource("BoxMesh_0r668")
+
+[node name="FORWARD" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.74846e-08, 0.5, -0.4)
+mesh = SubResource("BoxMesh_0r668")
+
+[node name="BACK" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.74846e-08, 0.5, 0.4)
 mesh = SubResource("BoxMesh_0r668")

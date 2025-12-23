@@ -13,13 +13,16 @@ func render_matrix(entity_matrix:Array, static_matrix_size:Vector3):
 			for z in range(static_matrix_size.z):
 				var instance:Node3D
 				match entity_matrix[x][y][z].name:
-					"ground": instance = ground.instantiate()
+					"ground": 
+						instance = ground.instantiate()
+						instance.setup_dir(entity_matrix[x][y][z].in_array)
 					"grass": instance = grass.instantiate()
 					"portal": instance = portal.instantiate()
 					"piston": instance = piston.instantiate()
 					"player": instance = player.instantiate()
 					_: instance = air.instantiate()
 				instance.position = Vector3(x,y,z)
+				
 				add_child(instance)
 
 func free_all_children(parent_node):

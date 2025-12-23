@@ -39,7 +39,8 @@ func start_level():
 	player=current_level.get_player()
 	add_child(Node3D.new())
 	setup_finished=true
-	
+	%Render.render_matrix(entity_matrix, matrix_size)
+
 func get_element(position):
 	return entity_matrix[position.x][position.y][position.z]
 	
