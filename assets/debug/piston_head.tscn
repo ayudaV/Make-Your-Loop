@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0kvweuesrlwu"]
+[gd_scene load_steps=5 format=3 uid="uid://6nksmy8xvj5h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llfb4"]
 transparency = 1
@@ -14,9 +14,9 @@ albedo_color = Color(0.466667, 0.486275, 0.486275, 0.615686)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hrjqc"]
 material = SubResource("StandardMaterial3D_e4co7")
-size = Vector3(1, 0.8, 1)
+size = Vector3(0.4, 0.8, 0.4)
 
-[node name="Piston" type="Node3D"]
+[node name="PistonHead" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)

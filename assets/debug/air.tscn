@@ -10,5 +10,4 @@ radius = 0.1
 height = 0.2
 
 [node name="Air" type="MeshInstance3D"]
-visible = false
 mesh = SubResource("SphereMesh_bmwp7")

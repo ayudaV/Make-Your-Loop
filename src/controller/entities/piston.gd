@@ -1,6 +1,9 @@
 class_name Piston extends Tile
+@export var is_open:bool
+var character:Node3D
 
-func _init(position:Vector3, is_open:bool) -> void:
+func _init(position:Vector3, _is_open:bool, _character:Node3D) -> void:
 	name="piston"
 	self.position = position
-	self.is_open = is_open
+	is_open = _is_open
+	character = _character

@@ -10,6 +10,7 @@ var level_index = 0
 var matrix_size:Vector3
 var entity_matrix:Array
 var player:Player
+var pistons: Array[Piston]
 var can_move = false
 var portal_list=[]
 var setup_finished=false
@@ -37,6 +38,8 @@ func start_level():
 	entity_matrix=current_level.get_level_matrix(level_instance)
 	matrix_size=current_level.static_matrix_size
 	player=current_level.get_player()
+	pistons=current_level.get_pistons()
+
 	add_child(Node3D.new())
 	setup_finished=true
 	%Render.render_matrix(entity_matrix, matrix_size)
