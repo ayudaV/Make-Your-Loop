@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://clxjq8t1a31md"]
+[gd_scene load_steps=9 format=4 uid="uid://clxjq8t1a31md"]
+
+[ext_resource type="Script" uid="uid://b7u4fyk118xat" path="res://src/portal/portal.gd" id="1_v6slm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvpx0"]
 emission_shape_scale = Vector3(0.4, 0.4, 0.4)
@@ -18,11 +20,85 @@ height = 0.025
 radial_segments = 8
 rings = 4
 
-[node name="Portal" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvw2l"]
+resource_name = "stone"
+albedo_color = Color(0.865877, 0.948242, 0.959256, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0to4"]
+resource_name = "grass"
+albedo_color = Color(0.45234, 0.929502, 0.865877, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cj7b8"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1, 1),
+"format": 34896613377,
+"index_count": 162,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgABAAQABAAFAAIAAQAAAAYABwAFAAQAAAADAAgAAAAJAAYACAAJAAAABgAJAAgAAQAGAAoABgALAAoACwAGAAgAAQAKAAwABAABAAwACgALAA0ADQAMAAoACAAOAAsACwAOAA0ADwAOAAgADgAPAA0AAwAQAAgAAwAHABAACAARAA8AEAARAAgAEgAMAA0ABAAMABIAEgANABMAEwANAA8ABAASABQAFAAVAAQABAAVAAcABwAVABQAFgAUABIAFAAWAAcAEwAWABIAFgAXAAcAFwAWABMAFwAYAAcAGAAQAAcAEwAZABcADwAZABMAGgAYABcAFwAZABoAEAAYABoADwAbABkAGwAaABkAGgAcABAAGwAcABoAHAAdABAAHQAcABsAHQAbAA8AEQAQAB0ADwARAB0A"),
+"name": "stone",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("//8AAAAAAAD//wAA//8AAP///////wAA/////wAAAAAAAAAA//8AAAAA/////wAAZeYAADJzAAAAAP//AAAAAILQ+m0AAAAAZeYAAAAAAADxtwAAZeYAAHPb/TZl5gAAGzoAAGXmAACrKWM+ZeYAAILQ+m1l5gAAF776bWXmAACdqEfMAAAAABe++m0AAAAAmRkAAAScAAC9Ocd8ZeYAAJkZAAAAAAAAAAAAAAAAAAC9Ocd8AAAAAF1Vx3wAAAAAD29HzAAAAABdVcd8ZeYAAA9vR8xl5gAAWrMgnWXmAADWi0fMZeYAAJ2oR8wycwAA")
+}, {
+"aabb": AABB(-0.5, 1, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "grass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAAAAAAP//AAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_draul"]
+resource_name = "cliff_blockCave_stone_Mesh cliff_blockCave_stone"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("//9VgwAAVYMAAAAA//8AAKGqqkFBxqpBQcbet6Gq3rf//yVNmRklTZkZSCL//0giAAAAAP//AAD//1WDAABVg///AAD//1WDAABVgwAAAABhV4ga50HpSnwv6UqZGVWDAABVgwAAAAD//wAA75CIGqGqUUNBxlFDZeZVg///VYN8L6pB50GqQedB3rd8L963AAAPVGXmD1Rl5tJwMnOWjQAAlo0AAKpBmRmqQZkZxHwAAADFDUjet+PF3rf//wDFZea1kWXmqkH//6pBQcZRQ1PWU2PnQelKoapRQ3wv6UqkTLgy75CIGih0iBqLJB9nDUhVg+PFVYP6Y3CQmRlib5kZVU7//1VO//9wkLxpxD154MQ95dbyXNRNkGvDvK1KC8qQa2FXqkHvkKpB75Detyh03rdhV8R8MnPGIWXmlTpl5mRTAABkUwAAxiFUj692KD6vdr1EwlU="),
+"format": 34896613399,
+"index_count": 162,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABgAGAAZABYAGQAUABYAGQAaABQAGwAUABoAHAAbABoAHQAcABoAHgAdABoAGgAfAB4AIAAhACIAIgAjACAAJAAlACYAJgAnACQAJwAoACQAKQAqACsALAApACsALAArAC0ALAAtAC4ALwAsAC4ALwAuADAALwAwADEAMQAyAC8AMwA0ADUANQA2ADMANwA1ADQANQA4ADYAOAA5ADYAOAA6ADkAOwA3ADQAPAA7ADQANAA9ADwAPgA/AEAAQABBAD4AQQBCAD4AQwBEAEUARgBHAEgASQBKAEsASwBMAEkATABNAEkATgBPAFAAUABRAE4AUQBSAE4AUwBUAFUA"),
+"material": SubResource("StandardMaterial3D_fvw2l"),
+"name": "stone",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 76.7402, 0, 0),
+"vertex_count": 86,
+"vertex_data": PackedByteArray("//8AAAAA/7///wAA////v/////////+//////wAA/79dVcd8AAD//705x3wAAP//vTnHfGXm//9dVcd8Zeb//11Vx3wAAPvAXVXHfGXm+8APb0fMZeb7wA9vR8wAAPvAAAD//wAA/78AAP//////vwAAAAD///+/AAAAAAAA/7////////8AgP//AAD//wCAAAAAAP//AIAAAP////8AgJ2oR8wAAP//F776bQAA//+C0PptAAD//2XmAAAAAP////8AAAAA////////AAD//wAA//8AAP//D29HzAAA//9dVcd8AAD//705x3wAAP//mRkAAAAA//8AAAAAAAD//4LQ+m0AAP//F776bQAA//8XvvptZeb//4LQ+m1l5v//gtD6bQAAY8CC0PptZeZjwHPb/TZl5mPAZeYAADJzY8Bl5gAAAABjwP//AAAAAP//ZeYAAAAA//9l5gAAMnP/////AAD/////8bcAAGXm//8bOgAAZeb//wAAAAD/////mRkAAASc//+ZGQAAAAD//wAAAAAAAP//vTnHfGXm//+rKWM+Zeb//xe++m1l5v//XVXHfGXm//+C0PptZeb//1qzIJ1l5v//D29HzGXm///Wi0fMZeb//3Pb/TZl5v//8bcAAGXm//8bOgAAZeb//5kZAAAEnKTAqyljPmXmpMC9Ocd8ZeakwL05x3wAAKTAmRkAAAAApMCdqEfMMnOUzdaLR8xl5pTNWrMgnWXmlM1l5gAAMnOW0XPb/TZl5pbR8bcAAGXmltGdqEfMAAD//w9vR8wAAP//D29HzGXm///Wi0fMZeb//52oR8wyc///nahHzDJzgcBasyCdZeaBwBe++m1l5oHAF776bQAAgcCdqEfMAACBwJkZAAAEnCjRGzoAAGXmKNGrKWM+ZeYo0f9/AAD/fwAA/38AAP9/AAD/f/8//3//P/9//z//f/8/qXCrHqlwqx6pcKseqXCrHv9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3//P/9//z//f/8//3//P+xqdfXsanX17Gp19exqdfXsanX1/3//P/9//z//f/8//3//P/9//z//f/8//3//P/9//z//f/8//3//P/9/////f////3////9/////f////3////9/////f////3////9/////f///DnPhGQ5z4RkOc+EZDnPhGQ5z4RlmTj/qZk4/6mZOP+pTkHnXU5B511OQedf/f/8//3//P/9//z//f/8//3//P4BoP/SAaD/0gGg/9IBoP/SAaD/0DJVTCAyVUwgMlVMI")
+}, {
+"aabb": AABB(-0.5, 1, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("AAD//wAAYAz//2AM/////w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_s0to4"),
+"name": "grass",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 41.3701, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAAAAD/v///AAAAAP+///8AAP///7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cj7b8")
+
+[node name="Portal" type="Node3D" groups=["portal"]]
+script = ExtResource("1_v6slm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.5)
 amount = 16
 sub_emitter = NodePath(".")
 process_material = SubResource("ParticleProcessMaterial_hvpx0")
 draw_pass_1 = SubResource("SphereMesh_508n2")
+
+[node name="cliff_blockCave_stone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05, 0)
+mesh = SubResource("ArrayMesh_draul")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_color = Color(0.434151, 0.659087, 0.876448, 1)

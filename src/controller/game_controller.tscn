@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://jf3xiuvnr0wo"]
+[gd_scene load_steps=4 format=3 uid="uid://jf3xiuvnr0wo"]
 
 [ext_resource type="Script" uid="uid://c5rx13woi6xrg" path="res://src/controller/game_controller.gd" id="1_kohx0"]
 [ext_resource type="Resource" uid="uid://dujbsv12ujn3m" path="res://src/main/levels.tres" id="2_kohx0"]
+[ext_resource type="PackedScene" uid="uid://dxdy6m4vnmxjw" path="res://src/controller/render.tscn" id="3_xke0e"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_kohx0")
 levels = ExtResource("2_kohx0")
 
 [node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Render" parent="." instance=ExtResource("3_xke0e")]
 unique_name_in_owner = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
