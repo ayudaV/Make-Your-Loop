@@ -24,6 +24,7 @@ Globals="*res://src/globals.gd"
 portal=""
 player=""
 piston=""
+box=""
 
 [input]
 

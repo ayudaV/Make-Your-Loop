@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://dordl48s5lucj"]
 
-[ext_resource type="Script" uid="uid://k25ajo1tb1s8" path="res://src/path/path.gd" id="1_7v8xt"]
+[ext_resource type="Script" uid="uid://k25ajo1tb1s8" path="res://src/render/path/path.gd" id="1_7v8xt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5glk"]
 resource_name = "dirtDark"

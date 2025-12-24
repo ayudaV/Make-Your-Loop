@@ -1,11 +1,12 @@
 extends Node3D
-var air = preload("res://assets/debug/air.tscn")
-var grass = preload("res://assets/debug/grass.tscn")
-var ground = preload("res://assets/debug/ground.tscn")
-var portal = preload("res://assets/debug/portal.tscn")
-var piston = preload("res://assets/debug/piston.tscn")
-var piston_head = preload("res://assets/debug/piston_head.tscn")
-var player = preload("res://assets/debug/player.tscn")
+var air = preload("res://src/render/debug/air.tscn")
+var grass = preload("res://src/render/debug/grass.tscn")
+var ground = preload("res://src/render/debug/ground.tscn")
+var portal = preload("res://src/render/debug/portal.tscn")
+var piston = preload("res://src/render/debug/piston.tscn")
+var piston_head = preload("res://src/render/debug/piston_head.tscn")
+var player = preload("res://src/render/debug/player.tscn")
+var box = preload("res://src/render/debug/box.tscn")
 
 func render_matrix(entity_matrix:Array, static_matrix_size:Vector3):
 	free_all_children(self)
@@ -20,8 +21,9 @@ func render_matrix(entity_matrix:Array, static_matrix_size:Vector3):
 					"grass": instance = grass.instantiate()
 					"portal": instance = portal.instantiate()
 					"piston": instance = piston.instantiate()
-					"piston_head": instance = piston_head.instantiate()
+					"pistonHead": instance = piston_head.instantiate()
 					"player": instance = player.instantiate()
+					"box": instance = box.instantiate()
 					_: instance = air.instantiate()
 				instance.position = Vector3(x,y,z)
 				

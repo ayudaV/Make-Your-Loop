@@ -13,7 +13,6 @@ func _init(position:Vector3, _in_array:Array[Vector3], _out_array:Array[Vector3]
 	
 func can_move_into(entity,direction):
 	var target=Globals.game_controller.get_element(connected_portal_position+direction)
-	print(target)
 	return target.can_move_into(entity,direction)
 
 func can_move_over(entity,direction):

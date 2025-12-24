@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://ymrp3ls826ke"]
 
-[ext_resource type="Script" uid="uid://k25ajo1tb1s8" path="res://src/path/path.gd" id="1_ofp57"]
+[ext_resource type="Script" uid="uid://k25ajo1tb1s8" path="res://src/render/path/path.gd" id="1_ofp57"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vikjf"]
 resource_name = "grass"
