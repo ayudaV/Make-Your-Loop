@@ -25,6 +25,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if can_move and setup_finished:
+		swap_pistons()
 		player.move(loop_array[loop_position])
 		loop_position=(loop_position+1)%loop_size
 		can_move = false
@@ -50,6 +51,37 @@ func get_element(position):
 func set_element(position,value):
 	entity_matrix[position.x][position.y][position.z]=value
 
+func swap_pistons():
+	for piston in pistons:
+		var move_entity_array=[]
+		if piston.is_open:
+			var index=2
+			while (piston.position+index*Vector3.UP).y<current_level.static_matrix_size.y and not get_element(piston.position+index*Vector3.UP) is Air:
+				move_entity_array.append(get_element(piston.position+index*Vector3.UP))
+				index+=1
+			for entity in move_entity_array:
+				set_element(entity.position+Vector3.DOWN,entity)
+				entity.position+=Vector3.DOWN
+			if piston.position.y+move_entity_array.size()+1<current_level.static_matrix_size.y:
+				var new_position=piston.position+(move_entity_array.size()+1)*Vector3.UP
+				set_element(new_position,Air.new(new_position))
+			piston.is_open=false
+		else:
+			var index=1
+			while not get_element(piston.position+index*Vector3.UP) is Air:
+				move_entity_array.append(get_element(piston.position+index*Vector3.UP))
+				index+=1
+			for entity in move_entity_array:
+				set_element(entity.position+Vector3.UP,entity)
+				entity.position+=Vector3.UP
+			set_element(piston.position+Vector3.UP,PistonHead.new(piston.position+Vector3.UP))
+			piston.is_open=true
+			
+				
+				
+			
+			
+	
 
 func _on_timer_timeout() -> void:
 	can_move = true
