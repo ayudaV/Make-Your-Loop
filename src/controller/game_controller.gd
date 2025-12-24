@@ -11,6 +11,7 @@ var matrix_size:Vector3
 var entity_matrix:Array
 var player:Player
 var pistons: Array[Piston]
+var boxes: Array[Box]
 var can_move = false
 var portal_list=[]
 var setup_finished=false
@@ -40,7 +41,7 @@ func start_level():
 	matrix_size=current_level.static_matrix_size
 	player=current_level.get_player()
 	pistons=current_level.get_pistons()
-
+	boxes=current_level.get_boxes()
 	add_child(Node3D.new())
 	setup_finished=true
 	%Render.render_matrix(entity_matrix, matrix_size)
@@ -76,9 +77,10 @@ func swap_pistons():
 				entity.position+=Vector3.UP
 			set_element(piston.position+Vector3.UP,PistonHead.new(piston.position+Vector3.UP))
 			piston.is_open=true
-			
-				
-				
+		piston.update()
+		player.update()
+		for box in boxes:
+			box.update()
 			
 			
 	

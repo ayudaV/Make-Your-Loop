@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://byn2tds1kcqp"]
 
-[ext_resource type="Script" uid="uid://c5l4j0q554m1h" path="res://assets/debug/ground.gd" id="1_md65e"]
+[ext_resource type="Script" uid="uid://c5l4j0q554m1h" path="res://src/render/debug/ground.gd" id="1_md65e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r668"]
 transparency = 1

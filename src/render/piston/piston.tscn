@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://bfnqe04kkq0as"]
+[gd_scene load_steps=10 format=4 uid="uid://bfnqe04kkq0as"]
 
-[ext_resource type="Script" uid="uid://cgon0ulv4noor" path="res://src/piston/piston.gd" id="1_7ge1x"]
+[ext_resource type="Script" uid="uid://cgon0ulv4noor" path="res://src/render/piston/piston.gd" id="1_7ge1x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7om1r"]
 resource_name = "stone"
@@ -103,6 +103,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hfb0h")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qacxn"]
+size = Vector3(0.4, 1, 0.4)
+
 [node name="Piston" type="Node3D"]
 script = ExtResource("1_7ge1x")
 
@@ -111,7 +114,13 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.235006, 0)
 mesh = SubResource("ArrayMesh_i3sy0")
 skeleton = NodePath("")
 
-[node name="Head" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, -0.55, 0)
+[node name="Head" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
+
+[node name="Head" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 0, 0)
 mesh = SubResource("ArrayMesh_057cc")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head"]
+shape = SubResource("BoxShape3D_qacxn")

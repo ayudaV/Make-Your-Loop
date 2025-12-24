@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://celdpnylnsy0c"]
+[gd_scene load_steps=40 format=3 uid="uid://celdpnylnsy0c"]
 
 [ext_resource type="PackedScene" uid="uid://chcte2c4ug78k" path="res://assets/scenarios/GLTF format/grass.glb" id="1_t1iat"]
 [ext_resource type="PackedScene" uid="uid://28mtbyq368a2" path="res://assets/scenarios/GLTF format/cliff_block_rock.glb" id="3_absbr"]
@@ -29,15 +29,16 @@
 [ext_resource type="PackedScene" uid="uid://38mnvy5n7q4y" path="res://assets/scenarios/GLTF format/tree_pineRoundC.glb" id="33_ccet6"]
 [ext_resource type="PackedScene" uid="uid://c57fdofdbl3rl" path="res://assets/scenarios/GLTF format/tree_pineRoundB.glb" id="34_d6g4b"]
 [ext_resource type="PackedScene" uid="uid://bejacm6bu6s0p" path="res://assets/scenarios/GLTF format/tree_pineRoundA.glb" id="35_d6f5g"]
-[ext_resource type="PackedScene" uid="uid://bt26se4n6xwni" path="res://src/path/path_bend.tscn" id="35_xxfdu"]
+[ext_resource type="PackedScene" uid="uid://bt26se4n6xwni" path="res://src/render/path/path_bend.tscn" id="35_xxfdu"]
 [ext_resource type="PackedScene" uid="uid://be8s8g76c5lli" path="res://assets/scenarios/GLTF format/campfire_planks.glb" id="36_5x1a2"]
-[ext_resource type="PackedScene" uid="uid://ymrp3ls826ke" path="res://src/path/path_end.tscn" id="36_xxfdu"]
-[ext_resource type="PackedScene" uid="uid://dordl48s5lucj" path="res://src/path/path_straight.tscn" id="37_ndkyi"]
-[ext_resource type="PackedScene" uid="uid://clxjq8t1a31md" path="res://src/portal/portal.tscn" id="37_xxfdu"]
+[ext_resource type="PackedScene" uid="uid://ymrp3ls826ke" path="res://src/render/path/path_end.tscn" id="36_xxfdu"]
+[ext_resource type="PackedScene" uid="uid://dordl48s5lucj" path="res://src/render/path/path_straight.tscn" id="37_ndkyi"]
+[ext_resource type="PackedScene" uid="uid://clxjq8t1a31md" path="res://src/render/portal/portal.tscn" id="37_xxfdu"]
 [ext_resource type="PackedScene" uid="uid://d2syvahbuebqo" path="res://assets/scenarios/GLTF format/campfire_stones.glb" id="37_xytmd"]
-[ext_resource type="PackedScene" uid="uid://c6b30w7h5axxw" path="res://src/path/path_split.tscn" id="37_yca3t"]
-[ext_resource type="PackedScene" uid="uid://coynv4jj0rj1s" path="res://src/player/player.tscn" id="38_ndkyi"]
-[ext_resource type="PackedScene" uid="uid://bfnqe04kkq0as" path="res://src/piston/piston.tscn" id="38_yca3t"]
+[ext_resource type="PackedScene" uid="uid://c6b30w7h5axxw" path="res://src/render/path/path_split.tscn" id="37_yca3t"]
+[ext_resource type="PackedScene" uid="uid://coynv4jj0rj1s" path="res://src/render/player/player.tscn" id="38_ndkyi"]
+[ext_resource type="PackedScene" uid="uid://bfnqe04kkq0as" path="res://src/render/piston/piston.tscn" id="38_yca3t"]
+[ext_resource type="PackedScene" uid="uid://dec372v8ojqpq" path="res://src/render/box/box.tscn" id="39_yca3t"]
 
 [node name="PistonTutorial" type="Node3D"]
 
@@ -454,7 +455,10 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 9, 1, 3)
 conected_portal = NodePath("../Portal")
 
 [node name="Piston" parent="Interactables" groups=["piston"] instance=ExtResource("38_yca3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 6)
+
+[node name="Box" parent="Interactables" groups=["box"] instance=ExtResource("39_yca3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 6)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("38_ndkyi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 1, 1)

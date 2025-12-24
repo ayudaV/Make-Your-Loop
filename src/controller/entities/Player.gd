@@ -1,8 +1,8 @@
 class_name Player extends Entity
 
-var render:CharacterBody3D
+var render:PlayerRender
 
-func _init(position:Vector3, _render:CharacterBody3D) -> void:
+func _init(position:Vector3, _render:PlayerRender) -> void:
 	name="player"
 	self.position = position
 	render = _render
@@ -17,6 +17,12 @@ func move(direction):
 	" Move direction: " + str(direction))
 	
 	if target.can_move_into(self,direction) and target_floor.can_move_over(self,direction):
+		if target is Box:
+			target.move(direction)
+			target = Globals.game_controller.get_element(position+direction)
 		target.move_into(self,direction)
 		target_floor.move_over(self,direction)
-		render.update(position)
+		update()
+		
+func update():
+	render.update(position)

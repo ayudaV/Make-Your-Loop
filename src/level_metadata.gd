@@ -5,19 +5,22 @@ class_name LevelMetadata extends Resource
 @export var level_scenario: PackedScene
 var player: Player
 var pistons: Array[Piston]
+var boxes: Array[Box]
 
 func get_player() -> Player:
 	return player 
 	
 func get_pistons() -> Array[Piston]:
 	return pistons 
+func get_boxes() -> Array[Box]:
+	return boxes 
 	
 func get_level_matrix(level_instance):
 	var entity_matrix:Array[Array] = []
 	var paths:Array[Node] = level_instance.get_node("Paths").get_children()
 	var interactables:Array[Node] = level_instance.get_node("Interactables").get_children()
-	var characater = level_instance.get_node("Player") as CharacterBody3D
-	player = Player.new(characater.position, characater)
+	var character = level_instance.get_node("Player") as PlayerRender
+	player = Player.new(character.position, character)
 	
 	for x in range(static_matrix_size.x):
 		entity_matrix.append([])
@@ -45,6 +48,10 @@ func get_level_matrix(level_instance):
 				var piston = Piston.new(interactable.position, interactable.is_open, interactable)
 				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = piston
 				pistons.append(piston)
+			"box": 
+				var box = Box.new(interactable.position, interactable)
+				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = box
+				boxes.append(box)
 
 		entity_matrix[player.position.x][player.position.y][player.position.z] = player
 	return entity_matrix
