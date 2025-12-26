@@ -18,3 +18,9 @@ func can_move_over(entity,direction):
 		
 	else:
 		return false
+		
+func can_move_out(entity,direction):
+	if direction in out_array:
+		return true
+	else:
+		return false
