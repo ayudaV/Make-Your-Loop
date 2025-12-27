@@ -14,3 +14,6 @@ func can_move_over(entity,direction):
 	
 func can_move_into(entity,direction):
 	return false
+
+func can_move_out(entity,direction):
+	return true
