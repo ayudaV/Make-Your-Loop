@@ -7,6 +7,7 @@ var piston = preload("res://src/render/debug/piston.tscn")
 var piston_head = preload("res://src/render/debug/piston_head.tscn")
 var player = preload("res://src/render/debug/player.tscn")
 var box = preload("res://src/render/debug/box.tscn")
+var goal = preload("res://src/render/debug/goal.tscn")
 
 func render_matrix(entity_matrix:Array, static_matrix_size:Vector3):
 	free_all_children(self)
@@ -24,6 +25,7 @@ func render_matrix(entity_matrix:Array, static_matrix_size:Vector3):
 					"pistonHead": instance = piston_head.instantiate()
 					"player": instance = player.instantiate()
 					"box": instance = box.instantiate()
+					"goal": instance = goal.instantiate()
 					_: instance = air.instantiate()
 				instance.position = Vector3(x,y,z)
 				
