@@ -25,6 +25,7 @@ portal=""
 player=""
 piston=""
 box=""
+goal=""
 
 [input]
 

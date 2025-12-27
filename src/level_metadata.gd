@@ -52,6 +52,10 @@ func get_level_matrix(level_instance):
 				var box = Box.new(interactable.position, interactable)
 				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = box
 				boxes.append(box)
+			"goal": 
+				entity_matrix[interactable.position.x][interactable.position.y][interactable.position.z] = Goal.new(
+					interactable.position
+				)
 
 		entity_matrix[player.position.x][player.position.y][player.position.z] = player
 	return entity_matrix

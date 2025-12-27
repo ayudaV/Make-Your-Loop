@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c6b30w7h5axxw" path="res://src/render/path/path_split.tscn" id="37_yca3t"]
 [ext_resource type="PackedScene" uid="uid://coynv4jj0rj1s" path="res://src/render/player/player.tscn" id="38_ndkyi"]
 [ext_resource type="PackedScene" uid="uid://bfnqe04kkq0as" path="res://src/render/piston/piston.tscn" id="38_yca3t"]
-[ext_resource type="PackedScene" uid="uid://dec372v8ojqpq" path="res://src/render/box/box.tscn" id="39_yca3t"]
+[ext_resource type="PackedScene" uid="uid://dkdbn66oquwfy" path="res://src/render/goal/goal.tscn" id="39_yca3t"]
 
 [node name="PistonTutorial" type="Node3D"]
 
@@ -457,8 +457,8 @@ conected_portal = NodePath("../Portal")
 [node name="Piston" parent="Interactables" groups=["piston"] instance=ExtResource("38_yca3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 6)
 
-[node name="Box" parent="Interactables" groups=["box"] instance=ExtResource("39_yca3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 6)
+[node name="Goal" parent="Interactables" instance=ExtResource("39_yca3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 2, 6)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("38_ndkyi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 1, 1)

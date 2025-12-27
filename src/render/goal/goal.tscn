@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkdbn66oquwfy"]
+
+[ext_resource type="Script" uid="uid://b7u4fyk118xat" path="res://src/render/portal/portal.gd" id="1_7p32u"]
+[ext_resource type="PackedScene" uid="uid://cjg7udie2hwb5" path="res://assets/scenarios/GLTF format/flag.glb" id="2_pmygv"]
+
+[node name="Goal" type="Node3D" groups=["goal"]]
+script = ExtResource("1_7p32u")
+
+[node name="flag" parent="." instance=ExtResource("2_pmygv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)

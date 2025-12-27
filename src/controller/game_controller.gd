@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		loop_position=(loop_position+1)%loop_size
 		can_move = false
 		%Render.render_matrix(entity_matrix, matrix_size)
-		%Timer.start(2)
+		%Timer.start(0.5)
 		
 func start_level():
 	var level_instance = current_level.level_scenario.instantiate()

@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://cpiun00k0oon5" path="res://src/render/render.gd" id="1_w4g8x"]
 
 [node name="Render" type="Node3D"]
-visible = false
 script = ExtResource("1_w4g8x")
