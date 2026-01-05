@@ -87,3 +87,6 @@ func swap_pistons():
 
 func _on_timer_timeout() -> void:
 	can_move = true
+	
+func next_level():
+	get_tree().quit()
