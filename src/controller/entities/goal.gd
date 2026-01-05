@@ -13,3 +13,4 @@ func move_into(entity,direction):
 	Globals.game_controller.set_element(position,entity)
 	Globals.game_controller.set_element(entity.position,Air.new(entity.position))
 	entity.position = position
+	Globals.game_controller.next_level()
